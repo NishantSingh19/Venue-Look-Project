@@ -1,6 +1,7 @@
 "use client";
 
 import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -13,6 +14,8 @@ export default function BookingConfirmationPage() {
   const checkOut = searchParams.get('checkOut');
 
   return (
+    <Suspense fallback={<p>Loading...</p>}>
+
     <div className="flex flex-col items-center justify-center min-h-[calc(100vh-200px)] py-12">
       <Card className="w-full max-w-lg text-center shadow-xl p-6 sm:p-8">
         <CardHeader>
@@ -43,5 +46,6 @@ export default function BookingConfirmationPage() {
         </CardContent>
       </Card>
     </div>
+    </Suspense>
   );
 }
